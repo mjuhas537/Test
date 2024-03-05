@@ -39,5 +39,5 @@ app.delete("/users/:id", (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("Listening on the port 3000"));
+app.listen(80, () => console.log("Listening on the port 3000"));
 
