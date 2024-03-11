@@ -53,7 +53,8 @@ resource "aws_instance" "public_instance" {
   }
 
   metadata_options {
-    http_tokens = "required"
+    http_endpoint = "enabled"
+    http_tokens   = "required"
   }
 
 
