@@ -52,12 +52,6 @@ resource "aws_instance" "public_instance" {
     Name = "public_instance"
   }
 
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
-  }
-
-
   root_block_device {
     volume_size = 30
     volume_type = "gp2"
