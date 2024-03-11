@@ -1,2 +1,3 @@
 variables.tf
+ec2.tf
 .terraform
