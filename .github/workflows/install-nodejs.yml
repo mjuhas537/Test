@@ -1,19 +1,20 @@
 name: Deploy
-
 on:
   workflow_dispatch:
 jobs:
-  build:
-      name: Deploy to EC2
-      runs-on: ubuntu-latest
-      steps:
-        - name: Build & Deploy
-          uses: actions/checkout@v2 appleboy/ssh-action@v1.0.3
-          with:
-            host: "18.192.213.152"
-            username: "ubuntu"
-            key: ${{ secrets.SSH_PRIVATE_KEY }}
-            port: "22"
-            script: |
-              whoami
-              ls -al 
+  Deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Build & Deploy
+        env:
+            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            HOSTNAME: "18.192.213.152"
+            USER_NAME: "ubuntu"
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+              # Now we have got the access of EC2 and we will start the deploy.
+              ls
