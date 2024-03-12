@@ -18,10 +18,10 @@ jobs:
       
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -i  ubuntu@18.192.213.152
+          ssh -i  ubuntu@ec2-18-192-213-152.eu-central-1.compute.amazonaws.com
 
               # Now we have got the access of EC2 and we will start the deploy.
               sudo su -
               mkdir ghaTestFolder
               exit
-          ssh -O exit ubuntu@18.192.213.152
+          ssh -O exit ubuntu@ec2-18-192-213-152.eu-central-1.compute.amazonaws.com
