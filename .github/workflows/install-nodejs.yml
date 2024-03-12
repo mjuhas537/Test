@@ -17,7 +17,7 @@ jobs:
             USER_NAME: "ubuntu"
       
         run: |
-          echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i  ubuntu@18.192.213.152
 
               # Now we have got the access of EC2 and we will start the deploy.
