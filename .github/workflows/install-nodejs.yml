@@ -2,17 +2,18 @@ name: Deploy
 
 on:
   workflow_dispatch:
-build:
-    name: Deploy to EC2
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build & Deploy
-        uses: actions/checkout@v2 appleboy/ssh-action@v1.0.3
-        with:
-          host: "18.192.213.152"
-          username: "ubuntu"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: "22"
-          script: |
-            whoami
-            ls -al 
+jobs:
+  build:
+      name: Deploy to EC2
+      runs-on: ubuntu-latest
+      steps:
+        - name: Build & Deploy
+          uses: actions/checkout@v2 appleboy/ssh-action@v1.0.3
+          with:
+            host: "18.192.213.152"
+            username: "ubuntu"
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: "22"
+            script: |
+              whoami
+              ls -al 
