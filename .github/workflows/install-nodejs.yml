@@ -15,13 +15,8 @@ jobs:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             HOSTNAME: "18.192.213.152"
             USER_NAME: "ubuntu"
-      
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -i  ubuntu@ec2-18-192-213-152.eu-central-1.compute.amazonaws.com
-
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
               # Now we have got the access of EC2 and we will start the deploy.
               sudo su -
-              mkdir ghaTestFolder
-              exit
-          ssh -O exit ubuntu@ec2-18-192-213-152.eu-central-1.compute.amazonaws.com
