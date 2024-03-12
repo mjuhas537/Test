@@ -13,7 +13,7 @@ jobs:
       - name: Build & Deploy
         env:
             PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            HOSTNAME: "172.31.30.164"
+            HOSTNAME: "18.192.213.152"
             USER_NAME: "ubuntu"
       
         run: |
