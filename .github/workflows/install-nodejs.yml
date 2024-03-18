@@ -30,5 +30,6 @@ jobs:
            cd Test/server
            npm i
            npm run dev
+           logout
           '
            
