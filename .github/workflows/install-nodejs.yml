@@ -29,6 +29,7 @@ jobs:
            npm -v
            cd Test/server
            npm i
-           npm run dev
+           npm run dev  &&
+           sudo pm2 stop server.js
           '
            
