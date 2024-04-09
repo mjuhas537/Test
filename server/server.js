@@ -18,11 +18,8 @@ app.get("/users", async (req, res) => {
 
 app.post('/users', (req, res) => {
     try {
-        console.log(req.body)
         const newUser = req.body;
         const users = database.save(newUser)
-        console.log(newUser)
-        console.log(users)
         res.send(users)
 
     } catch (e) {
